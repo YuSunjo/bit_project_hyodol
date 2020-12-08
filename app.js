@@ -17,6 +17,7 @@ db.sequelize.authenticate()
 })
 .then(() => {
     console.log('DB sync complete');
+    // return db.sequelize.sync();
 })
 .catch(err => {
     console.error('Unable to connect to the database:', err);
