@@ -5,4 +5,6 @@ router.get('/', (req, res) => {
     res.send('customer');
 })
 
+router.get('/write',)
+
 module.exports = router;

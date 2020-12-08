@@ -1,5 +1,6 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
+const logger = require('morgan');
 
 const customer = require('./routes/customer');
 
@@ -12,10 +13,16 @@ nunjucks.configure('template', {
     express : app
 });
 
+//미들웨어 세팅
+//morgan => get인지 post인지 로그로 알려줌  
+app.use( logger('dev'));
+
+app.use('/uploads', express.static('uploads'));
+
 app.get('/', (req, res) => {
     // res.send('hello');
     //template 파일 이후부터 지정해주면 된다. 
-    res.render( 'customer/customer.html', {
+    res.render( 'init/init.html', {
         message : 'hello'
     })
 })
