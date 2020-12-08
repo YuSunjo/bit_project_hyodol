@@ -13,7 +13,11 @@
         {% for customer in customers%}
 
         <tr>
-            <td>{{ customer.name }}</td>
+            <td>
+                <a href= "/customer/detail/{{ customer.id }}">
+                    {{ customer.name }}
+                </a>
+            </td>
             <td>
                 {{ customer.phone }}
             </td>

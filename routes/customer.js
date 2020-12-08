@@ -28,4 +28,12 @@ router.post('/', (req, res) => {
         res.redirect('/customer')
     })
 })
+
+router.get('/detail/:id', (req,res) => {
+    //req.params.id
+    models.twiliouser.findByPk(req.params.id).then( (customer) => {
+        res.render('customer/detail.html', { customer })
+    } )
+})
+
 module.exports = router;
