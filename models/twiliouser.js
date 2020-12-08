@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = (sequelize, DataTypes) => {
     const twiliouser = sequelize.define('twiliouser',
         {
@@ -6,5 +8,10 @@ module.exports = (sequelize, DataTypes) => {
             phone : { type: DataTypes.STRING },
         }
     );
+
+    twiliouser.prototype.dateFormat = (date) => {
+        return moment(date).format('YYYY년 MM월 DD일');
+    };
+    
     return twiliouser;
 } 
