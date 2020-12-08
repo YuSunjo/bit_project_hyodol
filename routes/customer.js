@@ -34,6 +34,23 @@ router.get('/detail/:id', (req,res) => {
     models.twiliouser.findByPk(req.params.id).then( (customer) => {
         res.render('customer/detail.html', { customer })
     } )
+});
+
+router.get('/edit/:id', (req, res) => {
+    models.twiliouser.findByPk(req.params.id).then( (customer) => {
+        res.render('customer/write.html', { customer });
+    })
+})
+
+router.post('/edit/:id', (req, res) => {
+    models.twiliouser.update({
+        name: req.body.name,
+        phone: req.body.phone
+    },{
+        where : {id : req.params.id}
+    }).then( () => {
+        res.redirect('/customer/detail/' + req.params.id);
+    })
 })
 
 module.exports = router;
