@@ -8,7 +8,12 @@ router.use(bodyParser.urlencoded({extended: false}));
 
 router.get('/', (req, res) => {
     // res.send('customer');
-    res.render('customer/customer.html');
+    // res.render('customer/customer.html');
+    models.twiliouser.findAll({
+
+    }).then( (customers) => {
+        res.render('customer/customer.html', { customers: customers })
+    })
 })
 
 router.post('/', (req, res) => {

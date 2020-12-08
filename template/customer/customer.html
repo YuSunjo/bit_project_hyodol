@@ -5,19 +5,23 @@
 
     <table class="table table-bordered table-hover">
         <tr>
-            <th>제목</th>
-            <th>작성일</th>
+            <th>이름</th>
+            <th>전화번호</th>
             <th>삭제</th>
         </tr>
+
+        {% for customer in customers%}
+
         <tr>
-            <td>제품 이름</td>
+            <td>{{ customer.name }}</td>
             <td>
-                2020-03-07
+                {{ customer.phone }}
             </td>
             <td>
                 <a href="#" class="btn btn-danger">삭제</a>
             </td>
         </tr>
+        {% endfor %}
     </table>
 
     <article class="container">
