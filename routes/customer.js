@@ -53,4 +53,14 @@ router.post('/edit/:id', (req, res) => {
     })
 })
 
+router.get('/delete/:id', (req, res) => {
+    models.twiliouser.destroy({
+        where : {
+            id: req.params.id
+        }
+    }).then(() => {
+        res.redirect('/customer');
+    })
+})
+
 module.exports = router;
