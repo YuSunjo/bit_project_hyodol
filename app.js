@@ -24,11 +24,6 @@ app.get('/', (req, res) => {
     })
 })
 
-// app.get('/:category', (req, res) => {   
-//     const category = req.params.category;
-//     console.log('category : ', category);
-
-// })
 
 //미들웨어 세팅
 //morgan => get인지 post인지 로그로 알려줌  
