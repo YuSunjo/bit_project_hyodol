@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const models = require('../models');
+const config = require('./config')
+const client = require('twilio')(config.accountSID, config.authToken)
+
+
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
@@ -62,5 +66,54 @@ router.get('/delete/:id', (req, res) => {
         res.redirect('/customer');
     })
 })
+
+router.get('/register', (req, res) => {
+    res.render('customer/register.html');
+});
+
+var phonenumber
+router.post('/phone', (req,res) => {
+    phonenumber = req.body.phone
+    console.log(phonenumber, req.body)
+    client  
+        .verify
+        .services(config.serviceID)
+        .verifications
+        .create({
+            to:`+${phonenumber}`,
+            channel: 'sms'
+        }).then((data) => {
+            res.redirect('/customer/register');
+        })
+})
+// router.get('/phone', (req, res) => {
+
+// })
+
+router.post('/auth', (req, res) => {
+    console.log(phonenumber)
+    client
+        .verify
+        .services(config.serviceID)
+        .verificationChecks
+        .create({
+            to:`+${phonenumber}`,
+            code: req.body.auth
+        }).then( (data) => {
+            // res.status(200).send(data);
+            console.log(data.valid);
+            if(data.valid === true){
+                res.redirect('/customer');
+            }else{
+                res.redirect('/customer/register/err')
+ 
+            }
+        })
+})
+
+router.get('/register/err', (req, res) => {
+    res.render('customer/error.html');
+})
+
 
 module.exports = router;

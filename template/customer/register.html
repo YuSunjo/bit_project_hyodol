@@ -1,0 +1,28 @@
+{% set title = "twilio 관리" %}
+{% extends "layout/base.html" %}
+
+{% block content -%}
+
+<div class="col-sm-6 col-md-offset-3">
+    <form role="form" action="/customer/phone" method="post">
+        <div class="form-group">
+            <label for="inputName">번호</label>
+            <input type="text" name="phone" class="form-control" id="inputName" placeholder="+821012345678">
+        </div>
+        <button type="submit" id="join-submit" class="btn btn-primary">
+            등록<i class="fa fa-check spaceLeft"></i>
+        </button>
+    </form>
+    <form role="form" action="/customer/auth" method="post">
+        <div class="form-group">
+            <label for="inputMobile">인증 번호</label>
+            <input type="tel" name="auth" class="form-control" id="inputMobile" placeholder="인증번호를 입력해 주세요">
+        </div>
+        <button type="submit" class="btn btn-primary">
+            등록<i class="fa fa-times spaceLeft"></i>
+        </button>
+    </form>
+</div>
+
+
+{% endblock %} 
