@@ -3,5 +3,31 @@
 
 {% block content -%}
 
-hello
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>날짜</th>
+        <th>아침</th>
+        <th>점심</th>
+        <th>저녁</th>
+    </tr>
+
+    {% for al in alarm%}
+
+    <tr>
+        <td>
+            {{ al.dateFormat( al.createdAt ) }}
+        </td>
+        <td>
+            {{ al.morning }}
+        </td>
+        <td>
+            {{ al.lunch }}
+        </td>
+        <td>
+            {{ al.dinner }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %} 
