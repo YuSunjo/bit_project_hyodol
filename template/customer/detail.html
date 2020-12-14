@@ -2,7 +2,21 @@
 {% extends "layout/base.html" %}
 
 {% block content -%}
-    <div class="panel panel-default">
+
+    <div class="text-center mt-5">
+        
+            <h2> {{ customer.name }} </h2>
+            <h2>작성일 : {{ customer.dateFormat( customer.createdAt ) }}</h2>
+            <h2> {{ customer.phone }} </h2>
+        
+    </div>
+    <div class="text-center">
+    <a href="/customer" class="btn btn-primary">목록으로</a>
+    <a href="/customer/edit/{{ customer.id }}" class="btn btn-primary">수정</a>
+    </div> 
+
+
+    {# <div class="panel panel-default">
         <div class="panel-heading">
             {{ customer.name }}
         </div>
@@ -16,6 +30,6 @@
         </div>
     </div>
 
-    <a href="/customer" class="btn btn-default">목록으로</a>
-    <a href="/customer/edit/{{ customer.id }}" class="btn btn-primary">수정</a>
+    <a href="/customer" class="btn btn-info">목록으로</a>
+    <a href="/customer/edit/{{ customer.id }}" class="btn btn-info">수정</a> #}
 {% endblock %} 

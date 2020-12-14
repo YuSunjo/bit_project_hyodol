@@ -20,14 +20,24 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
-    // res.send(req.body)
-    // models.twiliouser.create({
-    //     name: req.body.name,
-    //     phone: req.body.phone
-    // }).then( () => {
-    //     res.redirect('/customer')
-    // })
+// router.post('/', (req, res) => {
+//     // res.send(req.body)
+//     // models.twiliouser.create({
+//     //     name: req.body.name,
+//     //     phone: req.body.phone
+//     // }).then( () => {
+//     //     res.redirect('/customer')
+//     // })
+//     models.twiliouser.create(req.body).then( () => {
+//         res.redirect('/customer')
+//     })
+// })
+
+router.get('/write', (req, res) => {
+    res.render('customer/customerWrite.html')
+})
+
+router.post('/write', (req, res) => {
     models.twiliouser.create(req.body).then( () => {
         res.redirect('/customer')
     })
