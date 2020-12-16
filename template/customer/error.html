@@ -3,20 +3,13 @@
 
 {% block content -%}
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            틀렸습니다.
-        </div>
-        <div class="panel-body">
-            <div style="padding-bottom: 10px">
-                다시 작성해주세요
-            </div>
+    <div class="text-center mt-5">
 
-            {{ customer.phone }}
-
-        </div>
+        <h2> 틀렸습니다. </h2>
+        <h2> 다시 작성해주세요 </h2>
+        <a href="/customer/register" class="btn btn-primary">목록으로</a>
     </div>
 
-    <a href="/customer/register" class="btn btn-default">목록으로</a>
+    
 
 {% endblock %} 
