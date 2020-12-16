@@ -1,8 +1,8 @@
 # 🌐 프로젝트명: 말또미 
-back-end : Express
-database: mysql
-front-end : HTML(template- nunjucks), bootstrap
-그 외 : twilio - 문자 메세지 전송 모듈 
+* back-end : Express
+* database: mysql
+* front-end : HTML(template- nunjucks), bootstrap
+* 그 외 : twilio - 문자 메세지 전송 모듈 
 
 
 ### 첫페이지 
