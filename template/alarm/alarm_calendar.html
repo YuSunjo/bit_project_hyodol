@@ -3,6 +3,23 @@
 
 {% block content -%}
 
+<script>
+    $(document).ready(function() {
+        $('.calendarClass').datepicker({
+            showOn:"button",
+            buttonImage: "/uploads/calendar.png",
+            buttonImageOnly: true,
+            dateFormat:"yy-mm-dd"
+        });
+    })
+    
+</script>
+<form role="form" action="" method="post">
+    <input type='text' name="datepicker" class="calendarClass" data-position="left top"  data-language='en'/> 
+    {# <img src="/uploads/calendar.png" class="calendar" > #}
+    <button type="submit">확인</button>
+</form>
+
 <table class="table table-bordered table-hover">
     <tr>
         <th>날짜</th>
@@ -29,10 +46,5 @@
     </tr>
     {% endfor %}
 </table>
-<div class="form-group text-center">
-    <button id="join-submit" class="btn btn-primary">
-        <a href="/alarm/calendar" style="color:#000000">자세히</a><i class="fa fa-check spaceLeft"></i>
-    </button>
-</div>
 
 {% endblock %} 
