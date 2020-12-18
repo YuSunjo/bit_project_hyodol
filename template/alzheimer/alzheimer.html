@@ -13,14 +13,14 @@
         <th>점수</th>
     </tr>
 
-    {% for az in alzheimer%}
+    {% for az in alzheimer_test%}
 
     <tr>
         <td>
-            {{ az.dateFormat( az.createdAt ) }}
+            {{ az.Date}}
         </td>
         <td>
-            {{ az.number }}
+            {{ az.questionnumber }}
         </td>
         <td>
             {{ az.question }}
@@ -32,7 +32,7 @@
             {{ az.reply }}
         </td>
         <td>
-            {{ az.score }}
+            {{ az.ScoreCheck }}
         </td>
     </tr>
     {% endfor %}

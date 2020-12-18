@@ -5,10 +5,10 @@ const models = require('../models');
 router.get('/', (req, res) => {
     // res.send('customer');
     // res.render('alzheimer/alzheimer.html');
-    models.alzheimer.findAll({
+    models.alzheimer_test.findAll({
         limit : 15
-    }).then( (alzheimer) => {
-        res.render('alzheimer/alzheimer.html', { alzheimer });
+    }).then( (alzheimer_test) => {
+        res.render('alzheimer/alzheimer.html', { alzheimer_test });
     })
 })
 

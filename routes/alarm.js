@@ -6,10 +6,10 @@ const models = require('../models');
 router.get('/', (req, res) => {
     // res.send('customer');
     // res.render('alarm/alarm.html');
-    models.alarm.findAll({
+    models.medicinecheck.findAll({
         limit : 5
-    }).then( (alarm) => {
-        res.render('alarm/alarm.html', { alarm });
+    }).then( (medicinecheck) => {
+        res.render('alarm/alarm.html', { medicinecheck });
     })
 })
 

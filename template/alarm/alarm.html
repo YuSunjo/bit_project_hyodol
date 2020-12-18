@@ -11,11 +11,11 @@
         <th>저녁</th>
     </tr>
 
-    {% for al in alarm%}
+    {% for al in medicinecheck%}
 
     <tr>
         <td>
-            {{ al.dateFormat( al.createdAt ) }}
+            {{ al.Date }}
         </td>
         <td>
             {{ al.morning }}
