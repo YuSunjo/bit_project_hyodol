@@ -6,33 +6,19 @@
 <table class="table table-bordered table-hover">
     <tr>
         <th>날짜</th>
-        <th>번호</th>
-        <th>질문</th>
-        <th>정답</th>
-        <th>대답</th>
         <th>점수</th>
     </tr>
 
-    {% for az in alzheimer_test%}
+    {% for az in alzheimer_list%}
 
     <tr>
         <td>
+        <a href="/alzheimer/detail/{{ az.Date }}">
             {{ az.Date}}
+        </a>
         </td>
         <td>
-            {{ az.questionnumber }}
-        </td>
-        <td>
-            {{ az.question }}
-        </td>
-        <td>
-            {{ az.answer }}
-        </td>
-        <td>
-            {{ az.reply }}
-        </td>
-        <td>
-            {{ az.ScoreCheck }}
+            {{ az.score }}
         </td>
     </tr>
     {% endfor %}

@@ -1,0 +1,59 @@
+{% set title = "twilio 관리" %}
+{% extends "layout/base.html" %}
+
+{% block content -%}
+
+<script>
+    $(document).ready(function() {
+        $('.calendarClass').datepicker({
+            showOn:"button",
+            buttonImage: "/uploads/calendar.png",
+            buttonImageOnly: true,
+            dateFormat:"yy-mm-dd"
+        });
+    })
+    
+</script>
+<form role="form" action="/alzheimer/calendar" method="post">
+    <input type='text' name="datepicker" class="calendarClass" data-position="left top"  data-language='en'/> 
+    {# <img src="/uploads/calendar.png" class="calendar" > #}
+    <button type="submit">확인</button>
+</form>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>날짜</th>
+        <th>번호</th>
+        <th>질문</th>
+        <th>정답</th>
+        <th>대답</th>
+        <th>점수</th>
+    </tr>
+
+    {% for az in alzheimer_test%}
+
+    <tr>
+        <td>
+            {{ az.Date}}
+        </td>
+        <td>
+            {{ az.questionnumber }}
+        </td>
+        <td>
+            {{ az.question }}
+        </td>
+        <td>
+            {{ az.answer }}
+        </td>
+        <td>
+            {{ az.reply }}
+        </td>
+        <td>
+            {{ az.ScoreCheck }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %} 
