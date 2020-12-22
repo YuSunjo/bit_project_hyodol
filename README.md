@@ -2,11 +2,11 @@
 * back-end : Express
 * database: mysql
 * front-end : HTML(template- nunjucks), bootstrap
-* 그 외 : twilio - 문자 메세지 전송 모듈 
+* 그 외 : twilio - 문자 메세지 전송 모듈 , datepicker 
 
 
 ### 첫페이지 
-![image](https://user-images.githubusercontent.com/67853463/102358799-490b1d00-3ff3-11eb-8900-3cc7c0de6160.png)
+![image](https://user-images.githubusercontent.com/67853463/102856592-1e451c80-446a-11eb-85b3-ab0f0b4ed86a.png)
 
 ### twilio customer 페이지 
 ![image](https://user-images.githubusercontent.com/67853463/102361734-e6b41b80-3ff6-11eb-8d08-bc39682ae705.png)
