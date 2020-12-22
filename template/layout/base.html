@@ -17,22 +17,31 @@
 
         <style>
             body{
-                width:85%;
+                width:75%;
                 margin:0 auto;
+                font-family : sans-serif;
+            }
+            #font-bold{
+                font-weight:bold;
             }
         </style>
         <title>Hansei</title>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">Convenience</a>
+         <nav class="navbar navbar-expand-lg">  {# navbar-light bg-light #}
+            <a class="navbar-brand" href="/">어르신들을 위한 말도우미 말또미</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <button type="button" class="btn btn-outline-primary ">말또미 사용법</button> 
+                    </a> 
+                </li>
                 <li class="nav-item active" >
                     <a class="nav-link" href="/customer" >
-                       <button type="button" class="btn btn-outline-primary"> twilio customer </button> 
+                       <button type="button" class="btn btn-outline-primary"> 번호 등록 조회 </button> 
                     </a>
                 </li>
                 <li class="nav-item active">
@@ -45,16 +54,21 @@
                         <button type="button" class="btn btn-outline-primary ">치매테스트 기록</button> 
                     </a> 
                 </li>
+                
               </ul>
                   
             </div>
           </nav>
       </head>
 <body>
-    <div class="container" style="padding-top:100px;">
-
-        {% block content %}{% endblock %}
-
-    </div>    
+    <div class="container" style="padding-top:50px;  border-top: 1px solid #e9ecef; padding-bottom:50px;
+    border-bottom: 1px solid #e9ecef; padding-left:0px; padding-right:0px;">
+        <div style="padding-bottom: 30px; padding-top:30px; background-color: #eff9ff; border-radius:0.5rem;">
+            {% block content %}{% endblock %}
+        </div>
+    </div>   
+    <div style="color:#007bff">
+        &copy; 할머니 도와조
+    </div> 
 </body>
 </html> 
