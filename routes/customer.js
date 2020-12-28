@@ -37,8 +37,15 @@ router.get('/write', (req, res) => {
     res.render('customer/customerWrite.html')
 })
 
-router.post('/write', (req, res) => {
-    models.twiliouser.create(req.body).then( () => {
+router.post('/write', async (req, res) => {
+    console.log(req.body)
+    const exUser = await models.twiliouser.findOne({
+        where: {phone: req.body.phone}
+    })
+    if(exUser){
+        return res.render('malddomi/error.html', {message: '이미 있는 번호입니다.'});
+    }
+    await models.twiliouser.create(req.body).then( () => {
         res.redirect('/customer')
     })
 })
@@ -122,7 +129,7 @@ router.post('/auth', (req, res) => {
 })
 
 router.get('/register/err', (req, res) => {
-    res.render('customer/error.html');
+    res.render('customer/error.html', {message: '틀렸습니다. 다시 작성해주세요'});
 })
 
 
