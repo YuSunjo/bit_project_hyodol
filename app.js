@@ -7,6 +7,7 @@ const db = require('./models');
 const customer = require('./routes/customer');
 const alarm = require('./routes/alarm');
 const alzheimer = require('./routes/alzheimer');
+const malddomi = require('./routes/malddomi');
 
 const app = express();
 const port = 3000;
@@ -50,6 +51,8 @@ app.use('/customer', customer);
 app.use('/alarm' ,alarm );
 
 app.use('/alzheimer', alzheimer);
+
+app.use('/malddomi',malddomi);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
