@@ -1,0 +1,23 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t tnswh2023/docker-malddomi
+script:
+  - docker run -e CI=true tnswh2023/docker-malddomi
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "malddomi"
+  env: "Malddomi-env-1"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-689445151098"
+  bucket_path: "malddomi"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
