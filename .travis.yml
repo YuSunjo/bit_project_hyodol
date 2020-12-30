@@ -6,7 +6,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t tnswh2023/docker-malddomi
+  - docker build -t tnswh2023/docker-malddomi ./
 script:
   - docker run -e CI=true tnswh2023/docker-malddomi
 
@@ -19,5 +19,6 @@ deploy:
   bucket_path: "malddomi"
   on:
     branch: main
+
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_ACCESS_KEY
