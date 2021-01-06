@@ -4,6 +4,12 @@
 * front-end : HTML(template- nunjucks), bootstrap
 * 그 외 : twilio - 문자 메세지 전송 모듈 , datepicker 
 
+### 전체
+![image](https://user-images.githubusercontent.com/67853463/103751037-031e0380-504b-11eb-9507-0dd67f232ff2.png)
+
+### 백엔드 구성도
+![image](https://user-images.githubusercontent.com/67853463/103751158-36609280-504b-11eb-9789-02e9c1a588b4.png)
+
 
 ### 첫페이지 
 ![image](https://user-images.githubusercontent.com/67853463/102856592-1e451c80-446a-11eb-85b3-ab0f0b4ed86a.png)
