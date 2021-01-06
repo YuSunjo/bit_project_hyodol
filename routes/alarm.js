@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
     // res.send('customer');
     // res.render('alarm/alarm.html');
     models.medicinecheck.findAll({
-        limit : 5
+        limit : 5,
+        order : [['Date','DESC']],
     }).then( (medicinecheck) => {
         res.render('alarm/alarm.html', { medicinecheck });
     })
@@ -20,7 +21,6 @@ router.get('/', (req, res) => {
 router.get('/calendar', (req, res) => {
 
     models.medicinecheck.findAll({
-        limit : 5
     }).then( (medicinecheck) => {
         res.render('alarm/alarm_calendar.html', { medicinecheck });
     })
