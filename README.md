@@ -30,3 +30,11 @@
 ### 치매테스트 결과 - 치매테스트 결과를 보여줍니다. - 날짜를 누르면 그 날짜의 기록이 나오고 다른 날짜별 확인 가능 
 ![image](https://user-images.githubusercontent.com/67853463/102727948-523a1800-436c-11eb-8b88-b9647cf79b2c.png)
 
+
+### EC2 와 RDS로 배포까지
+http://ec2-3-34-197-17.ap-northeast-2.compute.amazonaws.com/
+
+![image](https://user-images.githubusercontent.com/67853463/103965393-f4496500-51a0-11eb-8642-fafa4f157f7a.png)
+
+### AI스피커 파일
+raspberryfi_file 
