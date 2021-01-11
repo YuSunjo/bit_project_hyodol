@@ -62,3 +62,5 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.listen(port , () => {
     console.log('express listening port on ', port);
 } )
+
+module.exports = app;
