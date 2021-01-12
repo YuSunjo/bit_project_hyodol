@@ -58,6 +58,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 
+app.use((error, req, res, next) => {
+    res.status(500).json({message: error.message })
+})
 
 app.listen(port , () => {
     console.log('express listening port on ', port);

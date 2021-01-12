@@ -4,85 +4,39 @@ const bodyParser = require('body-parser');
 const models = require('../models');
 const config = require('./config')
 const client = require('twilio')(config.accountSID, config.authToken)
+const customerController = require('./controllers/customer.ctrl');
 
 
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
 
-router.get('/', (req, res) => {
-    // res.send('customer');
-    // res.render('customer/customer.html');
-    models.twiliouser.findAll({
-
-    }).then( (customers) => {
-        res.render('customer/customer.html', { customers: customers })
-    })
-})
-
-// router.post('/', (req, res) => {
-//     // res.send(req.body)
-//     // models.twiliouser.create({
-//     //     name: req.body.name,
-//     //     phone: req.body.phone
-//     // }).then( () => {
-//     //     res.redirect('/customer')
-//     // })
-//     models.twiliouser.create(req.body).then( () => {
-//         res.redirect('/customer')
-//     })
-// })
+router.get('/', customerController.findAllCustomer);
 
 router.get('/write', (req, res) => {
     res.render('customer/customerWrite.html')
 })
 
-router.post('/write', async (req, res) => {
-    console.log(req.body)
-    const exUser = await models.twiliouser.findOne({
-        where: {phone: req.body.phone}
-    })
-    if(exUser){
-        return res.render('malddomi/error.html', {message: '이미 있는 번호입니다.'});
-    }
-    await models.twiliouser.create(req.body).then( () => {
-        res.redirect('/customer')
-    })
-})
 
-router.get('/detail/:id', (req,res) => {
+router.post('/write', customerController.writeCustomer );
+
+router.get('/detail/:id', (req,res, next) => {
     //req.params.id
-    models.twiliouser.findByPk(req.params.id).then( (customer) => {
-        res.render('customer/detail.html', { customer })
-    } )
+    try{
+        models.twiliouser.findByPk(req.params.id).then( (customer) => {
+            res.render('customer/detail.html', { customer })
+        })
+    }catch(error){
+        next(error)
+    }
+    
 });
 
-router.get('/edit/:id', (req, res) => {
-    models.twiliouser.findByPk(req.params.id).then( (customer) => {
-        res.render('customer/write.html', { customer });
-    })
-})
+router.get('/edit/:id', customerController.findByPk);
 
-router.post('/edit/:id', (req, res) => {
-    models.twiliouser.update({
-        name: req.body.name,
-        phone: req.body.phone
-    },{
-        where : {id : req.params.id}
-    }).then( () => {
-        res.redirect('/customer/detail/' + req.params.id);
-    })
-})
+router.post('/edit/:id', customerController.updateCustomer);
 
-router.get('/delete/:id', (req, res) => {
-    models.twiliouser.destroy({
-        where : {
-            id: req.params.id
-        }
-    }).then(() => {
-        res.redirect('/customer');
-    })
-})
+router.get('/delete/:id', customerController.deleteCustomer);
 
 router.get('/register', (req, res) => {
     res.render('customer/register.html');
